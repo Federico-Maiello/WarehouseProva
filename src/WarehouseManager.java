@@ -15,7 +15,12 @@ class WarehouseManager {
                         + ", Manufacturer: " + device.getManufacturer() + ", Model: " + device.getModel()
                         + ", Selling Price: " + device.getSellingPrice()));
     }
-
+    public void getItemInCart() {
+        cart.getCartItems().forEach(device ->
+                System.out.println("ID: " + device.getDeviceId() + ", Type: " + device.getDeviceType()
+                        + ", Manufacturer: " + device.getManufacturer() + ", Model: " + device.getModel()
+                        + ", Selling Price: " + device.getSellingPrice()));
+    }
 
 
     public void removeFromWarehouse(int deviceId) {

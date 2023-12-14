@@ -49,6 +49,7 @@ public class Main {
                     break;
                 case 5:
                     // Input and remove product from cart
+                    manager.getItemInCart();
                     System.out.print("Enter device ID to remove from cart: ");
                     int deviceIdToRemoveFromCart = scanner.nextInt();
                     manager.removeFromCart(deviceIdToRemoveFromCart);

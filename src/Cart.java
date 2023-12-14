@@ -1,19 +1,24 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 class Cart {
-    private final List<Device> cartItems;
-
-    public Cart() {
-        this.cartItems = new ArrayList<>();
-    }
+    private final List<Device> cartItems = new ArrayList<>();
 
     public void addToCart(Device device) {
         cartItems.add(device);
     }
 
     public void removeFromCart(int deviceId) {
-        cartItems.removeIf(device -> device.deviceId() == deviceId);
+        Iterator<Device> iterator = cartItems.iterator();
+        while (iterator.hasNext()) {
+            Device device = iterator.next();
+            if (device.getDeviceId() == deviceId) {
+                iterator.remove();
+                System.out.println("Elemento con ID " + deviceId + " rimosso dalla lista.");
+                return;
+            }
+        }
     }
 
     public double calculateTotal() {
