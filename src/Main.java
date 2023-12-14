@@ -55,9 +55,11 @@ public class Main {
                     manager.removeFromCart(deviceIdToRemoveFromCart);
                     break;
                 case 6:
+                    manager.getItemInCart();
                     System.out.println("Cart Total: " + manager.calculateCartTotal());
                     break;
                 case 7:
+                    manager.getItemInCart();
                     System.out.println("Cart Mid Price: " + manager.calculateMidPrice());
                     break;
                 case 8:
