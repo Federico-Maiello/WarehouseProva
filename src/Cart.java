@@ -14,7 +14,6 @@ class Cart {
 
     public void removeFromCart(int deviceId) {
         cartItems.removeIf(device -> device.deviceId() == deviceId);
-        cartItems.stream().mapToDouble(Device::getSellingPrice).iterator();
     }
 
     public double calculateTotal() {
