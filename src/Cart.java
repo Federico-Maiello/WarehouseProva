@@ -33,4 +33,12 @@ class Cart {
         return cartItems;
     }
 
+    public double calculateMidPrice() {
+        return cartItems.stream()
+                .mapToDouble(Device::getSellingPrice)
+                .average()
+                .orElse(0.0);
+    }
+
+
 }

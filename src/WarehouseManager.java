@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class WarehouseManager {
@@ -47,6 +48,9 @@ class WarehouseManager {
         } else {
             System.out.println("Product not found in the cart.");
         }
+    }
+    public double calculateMidPrice() {
+        return cart.calculateMidPrice();
     }
 
     public double calculateCartTotal() {

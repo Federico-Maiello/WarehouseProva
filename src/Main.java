@@ -9,7 +9,7 @@ public class Main {
         int choice;
         do {
             System.out.println("\n1. Print Products\n2. Add to Warehouse\n3. Remove from Warehouse\n" +
-                    "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Finalize Sale\n0. Exit");
+                    "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n8. Finalize Sale\n0. Exit");
             System.out.print("Enter your choice: ");
 //            choice = scanner.nextInt();
 
@@ -58,6 +58,9 @@ public class Main {
                     System.out.println("Cart Total: " + manager.calculateCartTotal());
                     break;
                 case 7:
+                    System.out.println("Cart Mid Price: " + manager.calculateMidPrice());
+                    break;
+                case 8:
                     manager.finalizeSale();
                     break;
                 case 0:
@@ -73,3 +76,4 @@ public class Main {
         scanner.close();
     }
 }
+
