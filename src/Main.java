@@ -11,9 +11,7 @@ public class Main {
             System.out.println("\n1. Print Products\n2. Add to Warehouse\n3. Remove from Warehouse\n" +
                     "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n8. Finalize Sale\n0. Exit");
             System.out.print("Enter your choice: ");
-//            choice = scanner.nextInt();
 
-            System.out.print("Enter your choice: ");
             try {
                 choice = scanner.nextInt();
             } catch (InputMismatchException e) {
