@@ -14,13 +14,17 @@ class WarehouseManager {
         warehouse.getInventory().forEach(device ->
                 System.out.println("ID: " + device.getDeviceId() + ", Type: " + device.getDeviceType()
                         + ", Manufacturer: " + device.getManufacturer() + ", Model: " + device.getModel()
-                        + ", Selling Price: " + device.getSellingPrice()));
+                        + ", Selling Price: " + device.getSellingPrice() + ", Display Size: " + device.getDisplaySize() + ",\n"
+                        + "          Storage Size: " + device.getStorageSize() + ", Purchase Price: " + device.getPurchasePrice()
+                        + ", Description: " + device.getDescription()));
     }
     public void getItemInCart() {
         cart.getCartItems().forEach(device ->
                 System.out.println("ID: " + device.getDeviceId() + ", Type: " + device.getDeviceType()
                         + ", Manufacturer: " + device.getManufacturer() + ", Model: " + device.getModel()
-                        + ", Selling Price: " + device.getSellingPrice()));
+                        + ", Selling Price: " + device.getSellingPrice() + ", Display Size: " + device.getDisplaySize() + ",\n"
+                        + "          Storage Size: " + device.getStorageSize() + ", Purchase Price: " + device.getPurchasePrice()
+                        + ", Description: " + device.getDescription()));
     }
 
 
@@ -96,19 +100,33 @@ class WarehouseManager {
 
         return searchResults;
     }
-    public List<Device> searchBySellingPrice(double price) {
+    public List<Device> searchBySellingPrice(double sellingPrice) {
         List<Device> searchPrice = new ArrayList<>();
 
         for (Device device : warehouse.getInventory()) {
-            if (device.getSellingPrice() == price) {
+            if (device.getSellingPrice() == sellingPrice) {
                 searchPrice.add(device);
             }
         }
 
         if (searchPrice.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato per il prezzo di acquisto specificato.");
+            System.out.println("No result for search by Selling Price: " + sellingPrice);
         }
         return searchPrice;
     }
 
+    public List<Device> searchByPurchasePrice (double purchasePrice){
+        List<Device> searchPurchasePrice = new ArrayList<>();
+
+        for (Device device : warehouse.getInventory()) {
+            if (device.getPurchasePrice() == purchasePrice) {
+                searchPurchasePrice.add(device);
+            }
+        }
+
+        if (searchPurchasePrice.isEmpty()) {
+            System.out.println("No result for search by Selling Price: " + purchasePrice);
+        }
+        return searchPurchasePrice;
+    }
 }

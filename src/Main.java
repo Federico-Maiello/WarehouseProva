@@ -11,7 +11,8 @@ public class Main {
         do {
             System.out.println("\n1. Print Products\n2. Add to Warehouse\n3. Remove from Warehouse\n" +
                     "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n" +
-                    "8. Finalize Sale\n9. Search by Manufacturer\n10. Search by Price\n0. Exit");
+                    "8. Finalize Sale\n9. Search by Manufacturer\n10. Search by Selling Price\n" +
+                    "11. Search by Purchase Price\n0. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -81,10 +82,22 @@ public class Main {
                     manager.printProducts();
                     System.out.print("Enter selling price to search: ");
                     double priceToSearch = Double.parseDouble(scanner.next());
-                    List<Device> searchpriceResults = manager.searchBySellingPrice(priceToSearch);
-                    if (!searchpriceResults.isEmpty()) {
+                    List<Device> searchSellingPricericeResults = manager.searchBySellingPrice(priceToSearch);
+                    if (!searchSellingPricericeResults.isEmpty()) {
                         System.out.println("Search results:");
-                        for (Device device : searchpriceResults) {
+                        for (Device device : searchSellingPricericeResults) {
+                            System.out.println(device);
+                        }
+                    }
+                    break;
+                case 11:
+                    manager.printProducts();
+                    System.out.print("Enter purchase price to search: ");
+                    double purchasePriceToSearch = Double.parseDouble(scanner.next());
+                    List<Device> searchPurchasePricericeResults = manager.searchByPurchasePrice(purchasePriceToSearch);
+                    if (!searchPurchasePricericeResults.isEmpty()) {
+                        System.out.println("Search results:");
+                        for (Device device : searchPurchasePricericeResults) {
                             System.out.println(device);
                         }
                     }
