@@ -20,6 +20,7 @@ public class Tablet extends Device {
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
         this.deviceId = deviceId;
+
     }
 
     public String getDeviceType() {
@@ -96,16 +97,17 @@ public class Tablet extends Device {
 
     @Override
     public String toString() {
-        return  "--------------------------- " + '\n' +
-                "- deviceType = " + deviceType + '\n' +
-                "- manufacturer = " + manufacturer + '\n' +
-                "- model = " + model + '\n' +
-                "- description = " + description + '\n' +
-                "- displaySize = " + displaySize + '\n' +
-                "- storageSize = " + storageSize + '\n' +
-                "- purchasePrice = " + purchasePrice + '\n' +
-                "- sellingPrice = " + sellingPrice + '\n' +
-                "- deviceId = " + deviceId + '\n';
+        return  "DeviceType = " + deviceType + ", " +
+                "Manufacturer = " + manufacturer + ", " +
+                "Model = " + model + ", " +
+                "Description = " + description + ", " +
+                "DisplaySize = " + displaySize + ", " +'\n' +
+                "             StorageSize = " + storageSize + ", " +
+                "PurchasePrice = " + purchasePrice + ", " +
+                "SellingPrice = " + sellingPrice + ", " +
+                "ID: = " + deviceId;
     }
 
 }
+
+//ID: 4431, Type: Notebook, Manufacturer: Asus, Model: ZenBook, Selling Price: 1000.0

@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +10,8 @@ public class Main {
         int choice;
         do {
             System.out.println("\n1. Print Products\n2. Add to Warehouse\n3. Remove from Warehouse\n" +
-                    "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n8. Finalize Sale\n0. Exit");
+                    "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n" +
+                    "8. Finalize Sale\n9. Search by Manufacturer\n0. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -63,6 +65,19 @@ public class Main {
                 case 8:
                     manager.finalizeSale();
                     break;
+                case 9:
+                    manager.printProducts();
+                    System.out.print("Enter manufacturer to search: ");
+                    String manufacturerToSearch = scanner.next();
+                    List<Device> searchResults = manager.searchByManufacturer(manufacturerToSearch);
+                    if (!searchResults.isEmpty()) {
+                        System.out.println("Search results:");
+                        for (Device device : searchResults) {
+                            System.out.println(device);
+                        }
+                    }
+                    break;
+
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
                     break;

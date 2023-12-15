@@ -81,5 +81,20 @@ class WarehouseManager {
             System.out.println("Product not found in the inventory.");
         }
     }
+    public List<Device> searchByManufacturer(String manufacturer) {
+        List<Device> searchResults = new ArrayList<>();
+
+        for (Device device : warehouse.getInventory()) {
+            if (device.getManufacturer().equalsIgnoreCase(manufacturer)) {
+                searchResults.add(device);
+            }
+        }
+
+        if (searchResults.isEmpty()) {
+            System.out.println("No result for search by manufacturer: " + manufacturer);
+        }
+
+        return searchResults;
+    }
 
 }
