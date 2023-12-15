@@ -96,5 +96,19 @@ class WarehouseManager {
 
         return searchResults;
     }
+    public List<Device> searchBySellingPrice(double price) {
+        List<Device> searchPrice = new ArrayList<>();
+
+        for (Device device : warehouse.getInventory()) {
+            if (device.getSellingPrice() == price) {
+                searchPrice.add(device);
+            }
+        }
+
+        if (searchPrice.isEmpty()) {
+            System.out.println("Nessun dispositivo trovato per il prezzo di acquisto specificato.");
+        }
+        return searchPrice;
+    }
 
 }

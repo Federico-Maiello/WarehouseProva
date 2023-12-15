@@ -11,7 +11,7 @@ public class Main {
         do {
             System.out.println("\n1. Print Products\n2. Add to Warehouse\n3. Remove from Warehouse\n" +
                     "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n" +
-                    "8. Finalize Sale\n9. Search by Manufacturer\n0. Exit");
+                    "8. Finalize Sale\n9. Search by Manufacturer\n10. Search by Price\n0. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -77,7 +77,18 @@ public class Main {
                         }
                     }
                     break;
-
+                case 10:
+                    manager.printProducts();
+                    System.out.print("Enter selling price to search: ");
+                    double priceToSearch = Double.parseDouble(scanner.next());
+                    List<Device> searchpriceResults = manager.searchBySellingPrice(priceToSearch);
+                    if (!searchpriceResults.isEmpty()) {
+                        System.out.println("Search results:");
+                        for (Device device : searchpriceResults) {
+                            System.out.println(device);
+                        }
+                    }
+                    break;
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
                     break;
