@@ -4,13 +4,13 @@ public class Notebook extends Device {
     private String model;
     private String description;
     private double displaySize;
-    private double storageSize;
+    private int storageSize;
     private double purchasePrice;
     private double sellingPrice;
     private int deviceId;
 
     public Notebook (String deviceType, String manufacturer, String model, String description,
-                     double displaySize, double storageSize, double purchasePrice, double sellingPrice, int deviceId) {
+                     double displaySize, int storageSize, double purchasePrice, double sellingPrice, int deviceId) {
         super();
         this.deviceType = deviceType;
         this.manufacturer = manufacturer;
@@ -64,11 +64,11 @@ public class Notebook extends Device {
         this.displaySize = displaySize;
     }
 
-    public double getStorageSize() {
-        return (int) storageSize;
+    public int getStorageSize() {
+        return storageSize;
     }
 
-    public void setStorageSize(double storageSize) {
+    public void setStorageSize(int storageSize) {
         this.storageSize = storageSize;
     }
 

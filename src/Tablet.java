@@ -4,13 +4,13 @@ public class Tablet extends Device {
     private String model;
     private String description;
     private double displaySize;
-    private double storageSize;
+    private int storageSize;
     private double purchasePrice;
     private double sellingPrice;
     private int deviceId;
 
     public Tablet(String deviceType, String manufacturer, String model, String description,
-                  double displaySize, double storageSize, double purchasePrice, double sellingPrice, int deviceId) {
+                  double displaySize, int storageSize, double purchasePrice, double sellingPrice, int deviceId) {
         this.deviceType = deviceType;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -20,7 +20,6 @@ public class Tablet extends Device {
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
         this.deviceId = deviceId;
-
     }
 
     public String getDeviceType() {
@@ -43,8 +42,8 @@ public class Tablet extends Device {
         return displaySize;
     }
 
-    public double getStorageSize() {
-        return (int) storageSize;
+    public int getStorageSize() {
+        return storageSize;
     }
 
     public double getPurchasePrice() {
@@ -79,7 +78,7 @@ public class Tablet extends Device {
         this.displaySize = displaySize;
     }
 
-    public void setStorageSize(double storageSize) {
+    public void setStorageSize(int storageSize) {
         this.storageSize = storageSize;
     }
 

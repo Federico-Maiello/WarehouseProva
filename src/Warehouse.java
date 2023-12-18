@@ -1,21 +1,30 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 class Warehouse {
-    private final List<Device> inventory;
+    private final List<Device> inventory = new ArrayList<>();
 
     public Warehouse() {
-        this.inventory = new ArrayList<>();
         this.inventory.addAll(getInventory());
     }
 
     public List<Integer> addProduct(Device device, int quantityToAdd) {
         List<Integer> addedDeviceIds = new ArrayList<>();
         for (int i = 0; i < quantityToAdd; i++) {
-            inventory.add(device);
-            addedDeviceIds.add(device.deviceId());
-            device.setStorageSize(quantityToAdd);
+            Device newDevice = new Device(device.getDeviceType(),
+                    device.getManufacturer(),
+                    device.getModel(),
+                    device.getDescription(),
+                    device.getDisplaySize(),
+                    device.getStorageSize(),
+                    device.getPurchasePrice(),
+                    device.getSellingPrice(),
+                    device.getDeviceId());
+            inventory.add(newDevice);
+            addedDeviceIds.add(newDevice.deviceId());
+            newDevice.setQuantity(quantityToAdd);
 
         }
 
@@ -24,7 +33,14 @@ class Warehouse {
 
 
     public void removeProduct(int deviceToRemove) {
-        inventory.removeIf(device -> device.deviceId() == deviceToRemove);
+        Iterator<Device> iterator = inventory.iterator();
+        while (iterator.hasNext()) {
+            Device device = iterator.next();
+            if (device.deviceId() == deviceToRemove) {
+                iterator.remove();
+                break;
+            }
+        }
     }
 
     public List<Device> getInventory() {

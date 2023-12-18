@@ -4,15 +4,16 @@ class Device {
     private String model;
     private String description;
     private double displaySize;
-    private double storageSize;
+    private int storageSize;
     private double purchasePrice;
     private double sellingPrice;
     private int deviceId;
+    private int quantity;
 
-    public Device(String deviceType, String manufacturer, String model, String description,
-                   double displaySize, double storageSize, double purchasePrice,
+    public Device (String deviceType, String manufacturer, String model, String description,
+                   double displaySize, int storageSize, double purchasePrice,
                    double sellingPrice, int deviceId) {
-        this.deviceType = deviceType;
+                this.deviceType = deviceType;
         this.manufacturer = manufacturer;
         this.model = model;
         this.description = description;
@@ -21,9 +22,19 @@ class Device {
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
         this.deviceId = deviceId;
+        this.quantity = 1;
     }
 
-    Device() {
+    public Device() {
+
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDeviceType() {
@@ -46,7 +57,7 @@ class Device {
         return displaySize;
     }
 
-    public double getStorageSize() {
+    public int getStorageSize() {
         return storageSize;
     }
 
@@ -66,7 +77,39 @@ class Device {
         return deviceId;
     }
 
-    public void setStorageSize(double storageSize) {
+    public void setStorageSize(int storageSize) {
         this.storageSize = storageSize;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDisplaySize(double displaySize) {
+        this.displaySize = displaySize;
+    }
+
+    public void setPurchasePrice(double purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public void setSellingPrice(double sellingPrice) {
+        this.sellingPrice = sellingPrice;
+    }
+
+    public void setDeviceId(int deviceId) {
+        this.deviceId = deviceId;
     }
 }

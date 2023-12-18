@@ -15,7 +15,7 @@ class Cart {
             Device device = iterator.next();
             if (device.getDeviceId() == deviceId) {
                 iterator.remove();
-                System.out.println("Elemento con ID " + deviceId + " rimosso dalla lista.");
+                System.out.println("Element with ID " + deviceId + " removed from list.");
                 return;
             }
         }

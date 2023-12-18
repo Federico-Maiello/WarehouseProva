@@ -76,14 +76,37 @@ class WarehouseManager {
     }
 
     public void addToWarehouse(int deviceIdToAdd, int quantityToAdd) {
-        Device device = findProductById(deviceIdToAdd, warehouse.getInventory());
+        Device device = findDeviceById(deviceIdToAdd, warehouse.getInventory());
 
         if (device != null) {
-            warehouse.addProduct(device, quantityToAdd);
-            System.out.println("Product added to the warehouse.");
+            int currentStorageSize = device.getStorageSize();
+            device.setStorageSize(currentStorageSize + quantityToAdd);
+            List<Integer> addedDeviceIds = warehouse.addProduct(new Device(), quantityToAdd);
+            System.out.println("Product added to the warehouse: " + addedDeviceIds);
         } else {
             System.out.println("Product not found in the inventory.");
         }
+    }
+    private Device findDeviceById(int deviceId, List<Device> inventory) {
+        for (Device device : inventory) {
+            if (device.getDeviceId() == deviceId) {
+                return device;
+            }
+        }
+        return null;
+    }
+    public  List<Device> searchByDevice(String type){
+        List<Device> results = new ArrayList<>();
+
+        for (Device device : warehouse.getInventory()) {
+            if (device.getDeviceType().equalsIgnoreCase(String.valueOf(type))){
+                results.add(device);
+            }
+        }
+        if (results.isEmpty()){
+            System.out.println("Nessun dispositivo trovato: " + type);
+        }
+        return results;
     }
     public List<Device> searchByManufacturer(String manufacturer) {
         List<Device> searchResults = new ArrayList<>();
