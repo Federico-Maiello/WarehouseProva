@@ -16,7 +16,7 @@ class WarehouseManager {
                         + ", Manufacturer: " + device.getManufacturer() + ", Model: " + device.getModel()
                         + ", Selling Price: " + device.getSellingPrice() + ", Display Size: " + device.getDisplaySize() + ",\n"
                         + "          Storage Size: " + device.getStorageSize() + ", Purchase Price: " + device.getPurchasePrice()
-                        + ", Description: " + device.getDescription()));
+                        + ", Description: " + device.getDescription() + ", Quantity: " + device.getQuantity()));
     }
     public void getItemInCart() {
         cart.getCartItems().forEach(device ->
@@ -24,8 +24,9 @@ class WarehouseManager {
                         + ", Manufacturer: " + device.getManufacturer() + ", Model: " + device.getModel()
                         + ", Selling Price: " + device.getSellingPrice() + ", Display Size: " + device.getDisplaySize() + ",\n"
                         + "          Storage Size: " + device.getStorageSize() + ", Purchase Price: " + device.getPurchasePrice()
-                        + ", Description: " + device.getDescription()));
+                        + ", Description: " + device.getDescription() + ", Quantity: " + device.getQuantity()));
     }
+
 
 
     public void removeFromWarehouse(int deviceId) {
@@ -34,7 +35,7 @@ class WarehouseManager {
 
     public void addToCart(int deviceId) {
         Device device = findProductById(deviceId, warehouse.getInventory());
-        if (device != null && device.getStorageSize() != 0) {
+        if (device != null && device.getQuantity() != 0) {
             cart.addToCart(device);
             removeFromWarehouse(deviceId);
             System.out.println("Product added to cart.");
@@ -79,9 +80,9 @@ class WarehouseManager {
         Device device = findDeviceById(deviceIdToAdd, warehouse.getInventory());
 
         if (device != null) {
-            int currentStorageSize = device.getStorageSize();
-            device.setStorageSize(currentStorageSize + quantityToAdd);
-            List<Integer> addedDeviceIds = warehouse.addProduct(new Device(), quantityToAdd);
+            int currentQuantity = device.getQuantity();
+            device.setQuantity(currentQuantity + quantityToAdd);
+            int addedDeviceIds = warehouse.addProduct(device, quantityToAdd);
             System.out.println("Product added to the warehouse: " + addedDeviceIds);
         } else {
             System.out.println("Product not found in the inventory.");

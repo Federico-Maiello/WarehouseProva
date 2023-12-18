@@ -34,7 +34,6 @@ public class Main {
                     int deviceIdToAdd = scanner.nextInt();
                     System.out.print("Enter quantity: ");
                     int quantityToAdd = scanner.nextInt();
-                    int devices = 0;
                     manager.addToWarehouse(deviceIdToAdd, quantityToAdd);
                     break;
                 case 3:
@@ -142,7 +141,6 @@ public class Main {
                         }
                     }
                     break;
-//searchByDevice
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
                     break;
