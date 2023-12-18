@@ -20,8 +20,8 @@ public class Main {
                 choice = scanner.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
-                scanner.nextLine(); // Consume the invalid input
-                choice = -1; // Set to an invalid choice to continue the loop
+                scanner.nextLine();
+                choice = -1;
             }
 
             switch (choice) {
@@ -34,6 +34,7 @@ public class Main {
                     int deviceIdToAdd = scanner.nextInt();
                     System.out.print("Enter quantity: ");
                     int quantityToAdd = scanner.nextInt();
+                    scanner.nextLine();
                     manager.addToWarehouse(deviceIdToAdd, quantityToAdd);
                     break;
                 case 3:

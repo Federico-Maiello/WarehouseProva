@@ -35,7 +35,7 @@ class WarehouseManager {
 
     public void addToCart(int deviceId) {
         Device device = findProductById(deviceId, warehouse.getInventory());
-        if (device != null && device.getQuantity() != 0) {
+        if (device != null && device.getQuantity() > 0) {
             cart.addToCart(device);
             removeFromWarehouse(deviceId);
             System.out.println("Product added to cart.");
@@ -67,35 +67,31 @@ class WarehouseManager {
         System.out.println("Sale finalized. Cart cleared.");
     }
 
-    private Device findProductById(int deviceId, List<Device> cartItems) {
-        for (Device device : cartItems) {
+    private Device findProductById(int deviceId, List<Device> devices) {
+        for (Device device : devices) {
             if (device.getDeviceId() == (deviceId)) {
                 return device;
             }
         }
+
         return null;
     }
 
     public void addToWarehouse(int deviceIdToAdd, int quantityToAdd) {
-        Device device = findDeviceById(deviceIdToAdd, warehouse.getInventory());
+        Device device = findProductById(deviceIdToAdd, warehouse.getInventory());
 
         if (device != null) {
             int currentQuantity = device.getQuantity();
             device.setQuantity(currentQuantity + quantityToAdd);
-            int addedDeviceIds = warehouse.addProduct(device, quantityToAdd);
-            System.out.println("Product added to the warehouse: " + addedDeviceIds);
+
+            warehouse.addProduct(device);
+
+            System.out.println("Product added to the warehouse: " + device);
         } else {
             System.out.println("Product not found in the inventory.");
         }
     }
-    private Device findDeviceById(int deviceId, List<Device> inventory) {
-        for (Device device : inventory) {
-            if (device.getDeviceId() == deviceId) {
-                return device;
-            }
-        }
-        return null;
-    }
+
     public  List<Device> searchByDevice(String type){
         List<Device> results = new ArrayList<>();
 
@@ -105,7 +101,7 @@ class WarehouseManager {
             }
         }
         if (results.isEmpty()){
-            System.out.println("Nessun dispositivo trovato: " + type);
+            System.out.println("No result for search by Type: " + type);
         }
         return results;
     }

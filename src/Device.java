@@ -13,7 +13,7 @@ class Device {
 
     public Device (String deviceType, String manufacturer, String model, String description,
                    double displaySize, int storageSize, double purchasePrice,
-                   double sellingPrice, int deviceId, int quantity) {
+                   double sellingPrice, int deviceId) {
                 this.deviceType = deviceType;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -23,10 +23,10 @@ class Device {
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
         this.deviceId = deviceId;
-        this.quantity = quantity;
+        this.quantity = 0;
     }
 
-    public Device() {
+    public Device(Device device) {
 
     }
 //    public void increaseQuantity(int incremento) {
