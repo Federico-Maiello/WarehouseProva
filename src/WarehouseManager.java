@@ -34,7 +34,7 @@ class WarehouseManager {
 
     public void addToCart(int deviceId) {
         Device device = findProductById(deviceId, warehouse.getInventory());
-        if (device != null) {
+        if (device != null && device.getStorageSize() != 0) {
             cart.addToCart(device);
             removeFromWarehouse(deviceId);
             System.out.println("Product added to cart.");
@@ -128,5 +128,20 @@ class WarehouseManager {
             System.out.println("No result for search by Selling Price: " + purchasePrice);
         }
         return searchPurchasePrice;
+    }
+
+    public List<Device> searchByModel (String model) {
+        List<Device> searchModel = new ArrayList<>();
+
+        for (Device device : warehouse.getInventory()) {
+            if (device.getModel().equals(model)) {
+                searchModel.add(device);
+            }
+        }
+
+        if (searchModel.isEmpty()) {
+            System.out.println("No result for search by Model: " + model);
+        }
+        return searchModel;
     }
 }

@@ -65,4 +65,8 @@ class Device {
     public int getDeviceId() {
         return deviceId;
     }
+
+    public void setStorageSize(double storageSize) {
+        this.storageSize = storageSize;
+    }
 }
