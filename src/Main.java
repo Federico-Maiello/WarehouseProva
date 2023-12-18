@@ -12,7 +12,7 @@ public class Main {
             System.out.println("\n1. Print Products\n2. Add to Warehouse\n3. Remove from Warehouse\n" +
                     "4. Add to Cart\n5. Remove from Cart\n6. Calculate Cart Total\n7. Calculate Mid Total\n" +
                     "8. Finalize Sale\n9. Search by Manufacturer\n10. Search by Selling Price\n" +
-                    "11. Search by Purchase Price\n12. Search by Model\n0. Exit");
+                    "11. Search by Purchase Price\n12. Search by Model\n13. Search by Range of Price\n0. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -114,6 +114,21 @@ public class Main {
                         }
                     }
                     break;
+                case 13:
+                    manager.printProducts();
+                    System.out.print("Enter min price to search: ");
+                    double purchaseminPrice = Double.parseDouble(scanner.next());
+                    System.out.print("Enter max price to search: ");
+                    double purchasemaxPrice = Double.parseDouble(scanner.next());
+                    List<Device> searchRangeResults = manager.searchByRangeOfPrice(purchaseminPrice, purchasemaxPrice);
+                    if (!searchRangeResults.isEmpty()) {
+                        System.out.println("Search results:");
+                        for (Device device : searchRangeResults) {
+                            System.out.println(device);
+                        }
+                    }
+                    break;
+//
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
                     break;

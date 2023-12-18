@@ -129,6 +129,21 @@ class WarehouseManager {
         }
         return searchPurchasePrice;
     }
+    public List<Device> searchByRangeOfPrice (double purchaseminPrice, double purchasemaxPrice){
+        List<Device> searchByRangeOfPrice = new ArrayList<>();
+
+        for (Device device : warehouse.getInventory()) {
+            double purchasePrice= device.getPurchasePrice();
+            if (purchasePrice >= purchaseminPrice && purchasePrice <= purchasemaxPrice) {
+                searchByRangeOfPrice.add(device);
+            }
+        }
+
+        if (searchByRangeOfPrice.isEmpty()) {
+            System.out.println("No result for search between: " + purchaseminPrice + " and: " + purchasemaxPrice);
+        }
+        return searchByRangeOfPrice;
+    }
 
     public List<Device> searchByModel (String model) {
         List<Device> searchModel = new ArrayList<>();
