@@ -5,7 +5,6 @@ public class Main {
         Manager manager = new Manager();
         Cart cart = new Cart();
         Product product = new Product();
-
         Menu menu = new Menu(manager, cart, product);
         menu.start();
     }

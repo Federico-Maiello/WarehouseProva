@@ -49,10 +49,19 @@ class Cart {
 
         } return cartItems;
     }
+    public double calcTotalProduct(Product product) {
+        return product.getSellingPrice() * product.getQuantity();
+    }
+
 
     public double calculateTotal() {
-        return cartItems.stream().mapToDouble(Product::getSellingPrice).sum();
+        double totalCart = 0;
+        for (Product product : cartItems) {
+            totalCart += calcTotalProduct(product);
+        }
+        return totalCart;
     }
+
 
     public void clearCart() {
         cartItems.clear();

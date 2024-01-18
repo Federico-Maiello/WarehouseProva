@@ -112,13 +112,13 @@ class Product implements Cloneable{
 
     @Override
     public String toString() {
-        return String.format("| ID: %-5s | Type: %-10s | Manufacturer: %-9s | Model: %-13s | Selling Price: %-6.2f | Display Size: %5.2f | Storage: %-5d | Puchase Price: %-6.2f | " +
+        return String.format("| ID: %-5s | Type: %-10s | Manufacturer: %-9s | Model: %-13s | Selling Price: %-7.2f | Display Size: %5.2f | Storage: %-5d | Purchase Price: %-6.2f | " +
                              "Quantity: %-6d | Description: %-100s |",
                              getProductId(),
                              getDeviceType(),
                              getManufacturer(),
                              getModel(),
-                             getPurchasePrice(),
+                             getSellingPrice(),
                              getDisplaySize(),
                              getStorageSize(),
                              getPurchasePrice(),

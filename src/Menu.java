@@ -135,7 +135,8 @@ public class Menu {
         start();
     }
     private void calculateCartTotal(){
-        System.out.println(cart.calculateTotal());
+        double total1 = manager.calculateCartTotal();
+        System.out.println("Il totale del carrello è: " + total1);
         start();
     }
     private void removeFromCart() {
@@ -163,9 +164,9 @@ public class Menu {
     }
 
     private void finalizeSale(){
-        double total= manager.calculateCartTotal();
+        double total2 = manager.calculateCartTotal();
         cart.clearCart();
-        System.out.println("Sale finalized. Your total payed is " + total);
+        System.out.println("Sale finalized. Your total payed is " + total2);
     }
 
     private void searchByPurchasePrice() {
@@ -190,8 +191,12 @@ public class Menu {
         List<Product> result = manager.searchByManufacturer(manufacturerToSearch);
         if (!result.isEmpty()) {
             for (Product product : result) {
-                System.out.println(product.getDeviceType());
+                System.out.println(product);
+                start();
             }
+        } else{
+            System.out.println("The manufacturer not exist");
+            start();
         }
     }
 
